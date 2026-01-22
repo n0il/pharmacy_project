@@ -75,6 +75,9 @@ new class extends Component
                     </svg>
                 </button>
             </div>
+            <x-nav-link :href="route('pdfs.index')" :active="request()->routeIs('pdfs.*')">
+    📃 {{ __('Perscriptions') }}
+</x-nav-link>
         </div>
     </div>
 
