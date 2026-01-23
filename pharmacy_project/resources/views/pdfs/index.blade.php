@@ -2,7 +2,7 @@
 <form method="POST" action="{{ route('pdfs.store') }}" enctype="multipart/form-data">
     @csrf
     <input type="file" name="document" accept=".pdf" class="border p-2">
-    <button class="bg-blue-500 text-white px-4 py-2 rounded">Upload PDF</button>
+    <button class="bg-blue-500 text-white px-4 py-2 rounded">Upload Prescription</button>
 </form>
 
 <div class="grid grid-cols-1 gap-4 mt-6">
