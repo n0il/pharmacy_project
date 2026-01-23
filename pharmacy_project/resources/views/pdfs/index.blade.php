@@ -14,7 +14,7 @@
             </div>
             <div class="flex gap-2">
                 {{-- Link to open PDF in new tab --}}
-                <a href="{{ asset('storage/' . $pdf->path) }}" target="_blank" class="text-blue-600 underline">View</a>
+                <a href="{{ asset('storage/' . $pdf->path) }}" target="_blank">View PDF</a>
                 
                 {{-- Delete form --}}
                 <form method="POST" action="{{ route('pdfs.destroy', $pdf) }}">

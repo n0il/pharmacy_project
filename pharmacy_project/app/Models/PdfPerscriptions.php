@@ -11,5 +11,5 @@ class PdfPerscriptions extends Model
 
     protected $table = 'pdfs';
 
-    protected $fillable = ['path', 'title'];
+    protected $fillable = ['path', 'title', 'original_name'];
 }

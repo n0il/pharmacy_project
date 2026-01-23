@@ -17,22 +17,37 @@ class PdfPerscriptionsController extends Controller
     
     public function create()
     {
-        return view('pdfs.create');
+        return "THE CONTROLLER IS WORKING";
+        // return view('pdfs.create');
     }
 
     
     public function store(Request $request)
     {
+        
         $request->validate([
-            'perscription' => 'required|mimes:pdf|max:10240', 
-            'title' => 'nullable|string|max:255',
+            'patient_name' => 'required|string|max:255',
+            'document' => 'required|mimes:pdf|max:10000', 
         ]);
+        
+        
+        if ($request->hasFile('document')) {
+            $file = $request->file('document');
+            
+            
+            $path = $file->store('prescriptions', 'public');
+            $originalName = $file->getClientOriginalName();
 
-        $path = $request->file('perscription')->store('pdfs', 'public');
-        PdfPerscriptions::create([
-            'path' => $path,
-            'title' => $request->title
-        ]);
+            
+            \App\Models\PdfPerscriptions::create([
+                'title' => $request->patient_name,
+                'path' => $path,
+                'original_name' => $originalName,
+            ]);
+            return redirect()->route('pdfs.index')->with('success', 'Prescription uploaded successfully!');
+        }
+
+        return back()->withErrors(['document' => 'File not found in request.']);
     }
     
 
