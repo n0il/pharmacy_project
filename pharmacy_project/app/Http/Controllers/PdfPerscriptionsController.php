@@ -10,8 +10,8 @@ class PdfPerscriptionsController extends Controller
     
     public function index()
     {
-        $perscriptions = PdfPerscriptions::latest()->get();
-        return view('pdfs.index', compact('perscriptions'));
+        $pdfs = PdfPerscriptions::latest()->get();
+        return view('pdfs.index', compact('pdfs'));
     }
 
     

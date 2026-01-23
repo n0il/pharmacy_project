@@ -9,9 +9,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pdfs', [PdfPerscriptionsController::class, 'index'])->name('pdfs.index');
     Route::post('/pdfs', [PdfPerscriptionsController::class, 'store'])->name('pdfs.store');
     Route::get('/pdfs/create', [PdfPerscriptionsController::class, 'create'])->name('pdfs.create');
-    Route::get('/pdfs', [PdfPerscriptionsController::class, 'edit'])->name('pdfs.edit');
-    Route::put('/pdfs', [PdfPerscriptionsController::class, 'update'])->name('pdfs.update');
-    Route::delete('/pdfs', [PdfPerscriptionsController::class, 'destroy'])->name('pdfs.destroy');
+    Route::get('/pdfs/{id}/edit', [PdfPerscriptionsController::class, 'edit'])->name('pdfs.edit');
+    Route::put('/pdfs/{id}', [PdfPerscriptionsController::class, 'update'])->name('pdfs.update');
+    Route::delete('/pdfs/{id}', [PdfPerscriptionsController::class, 'destroy'])->name('pdfs.destroy');
 });
 
 Route::view('dashboard', 'dashboard')
