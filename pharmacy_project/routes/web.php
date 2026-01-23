@@ -6,12 +6,12 @@ use App\Http\Controllers\PdfPerscriptionsController;
 Route::view('/', 'welcome');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/pdfs/{pdfPerscriptions}', [PdfPerscriptionsController::class, 'index'])->name('pdfs.index');
-    Route::post('/pdfs/{pdfPerscriptions}', [PdfPerscriptionsController::class, 'store'])->name('pdfs.store');
-    Route::get('/pdfs/{pdfPerscriptions}', [PdfPerscriptionsController::class, 'create'])->name('pdfs.create');
-    Route::get('/pdfs/{pdfPerscriptions}', [PdfPerscriptionsController::class, 'edit'])->name('pdfs.edit');
-    Route::put('/pdfs/{pdfPerscriptions}', [PdfPerscriptionsController::class, 'update'])->name('pdfs.update');
-    Route::delete('/pdfs/{pdfPerscriptions}', [PdfPerscriptionsController::class, 'destroy'])->name('pdfs.destroy');
+    Route::get('/pdfs', [PdfPerscriptionsController::class, 'index'])->name('pdfs.index');
+    Route::post('/pdfs', [PdfPerscriptionsController::class, 'store'])->name('pdfs.store');
+    Route::get('/pdfs/create', [PdfPerscriptionsController::class, 'create'])->name('pdfs.create');
+    Route::get('/pdfs', [PdfPerscriptionsController::class, 'edit'])->name('pdfs.edit');
+    Route::put('/pdfs', [PdfPerscriptionsController::class, 'update'])->name('pdfs.update');
+    Route::delete('/pdfs', [PdfPerscriptionsController::class, 'destroy'])->name('pdfs.destroy');
 });
 
 Route::view('dashboard', 'dashboard')

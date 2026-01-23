@@ -9,5 +9,7 @@ class PdfPerscriptions extends Model
 {
     use HasFactory;
 
+    protected $table = 'pdfs';
+
     protected $fillable = ['path', 'title'];
 }
